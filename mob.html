@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Validation</title>
+</head>
+<body>
+    <h1>Mobile Number Validator</h1>
+    <form id="mobileForm">
+        <label for="mobile">Enter Mobile Number:</label><br>
+        <input type="text" id="mobile" placeholder="Enter mobile number"><br><br>
+        <button type="button" onclick="validateMobile()">Validate</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function validateMobile() {
+            // Get the input value
+            const mobile = document.getElementById('mobile').value;
+
+            // Regular Expression for valid mobile numbers
+            const mobileRegex = /^[6-9]\d{9}$/; // Assumes 10-digit numbers starting with 6, 7, 8, or 9.
+
+            // Validate
+            if (mobileRegex.test(mobile)) {
+                document.getElementById('result').innerText = "✅ Valid Mobile Number!";
+                document.getElementById('result').style.color = "green";
+            } else {
+                document.getElementById('result').innerText = "❌ Invalid Mobile Number!";
+                document.getElementById('result').style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
